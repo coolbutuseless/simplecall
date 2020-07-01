@@ -21,6 +21,7 @@ included in a package and called with `.Call()`
 | Cons           | Too simple for most interesting things                 | Need to understand SEXP & R internals                        |                                                              |
 | Cons           | Performs copying of data to call functions             |                                                              |                                                              |
 | Demo R package | [{simplec}](https://github.com/coolbutuseless/simplec) | [{simplecall}](https://github.com/coolbutuseless/simplecall) | [{simplercpp}](https://github.com/coolbutuseless/simplercpp) |
+| Compiled size  | 17 kB                                                  | 17 kB                                                        | 92 kB                                                        |
 
 ## Installation
 
@@ -112,7 +113,7 @@ simplecall:::add_
 #> [1] "add_"
 #> 
 #> $address
-#> <pointer: 0x7fb9b65b8890>
+#> <pointer: 0x7f8b0b80ed90>
 #> attr(,"class")
 #> [1] "RegisteredNativeSymbol"
 #> 
