@@ -66,6 +66,8 @@
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 extern SEXP add_();
 extern SEXP mul_();
+extern SEXP create_data_frame_in_c_();
+extern SEXP create_list_in_c_();
 
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -73,10 +75,11 @@ extern SEXP mul_();
 // .Call   R_CallMethodDef
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 static const R_CallMethodDef CEntries[] = {
-  // name       pointer     Num args
-  {"add_", (DL_FUNC) &add_,        2},
-  {"mul_", (DL_FUNC) &mul_,        2},
-  {NULL  ,            NULL,        0}   // Placeholder(?) to indicate last one.
+  // name                      pointer                            Num args
+  {"add_"                   , (DL_FUNC) &add_                   , 2},
+  {"create_data_frame_in_c_", (DL_FUNC) &create_data_frame_in_c_, 0},
+  {"create_list_in_c_"      , (DL_FUNC) &create_list_in_c_      , 0},
+  {NULL                     , NULL                              , 0}   // Placeholder to indicate last one.
 };
 
 

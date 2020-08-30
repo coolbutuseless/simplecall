@@ -1,7 +1,7 @@
 Package: simplecall
 Type: Package
 Title: Example R Package Using .Call
-Version: 0.1.0
+Version: 0.1.1
 Author: mikefc
 Maintainer: mikefc <mikefc@coolbutuseless.com>
 Description: Example R package using .Call() calling convention.
