@@ -20,7 +20,7 @@ SEXP create_list_in_c_() {
   //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   // Each member of the list gets allocated separately
   //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-  int n = 3;
+  int n = 10;
 
   SEXP idx_ = PROTECT(allocVector(INTSXP , n));
   SEXP x_   = PROTECT(allocVector(REALSXP, n));
@@ -81,7 +81,7 @@ SEXP create_data_frame_in_c_() {
   //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   // Each member of the list gets allocated separately
   //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-  int n = 3;
+  int n = 10;
 
   SEXP idx_ = PROTECT(allocVector(INTSXP , n));
   SEXP x_   = PROTECT(allocVector(REALSXP, n));
@@ -100,7 +100,7 @@ SEXP create_data_frame_in_c_() {
   //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   // Allocate a data.frame
   //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-  SEXP df_ = PROTECT(allocVector(VECSXP, n));
+  SEXP df_ = PROTECT(allocVector(VECSXP, 3));
 
   //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   // Add columns to the data.frame
@@ -117,7 +117,7 @@ SEXP create_data_frame_in_c_() {
   //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   // Set the names on the list.
   //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-  SEXP names = PROTECT(allocVector(STRSXP, n));
+  SEXP names = PROTECT(allocVector(STRSXP, 3));
   SET_STRING_ELT(names,  0, mkChar("idx"));
   SET_STRING_ELT(names,  1, mkChar("x"));
   SET_STRING_ELT(names,  2, mkChar("y"));
