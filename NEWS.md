@@ -1,5 +1,10 @@
 
 
+# simplecall 0.1.3
+
+* Added demonstration function for:
+    * Creating an array within C and returning it to R
+
 # simplecall 0.1.2
 
 * Removed some ambiguity w.r.t 'n' when creating lists and data.frames in C
@@ -8,8 +13,8 @@
 
 * Automatic registration of C functions.  See `R.aaa.R`
 * Added demonstration functions for:
-    * Generating a list within C
-    * Generating a data.frame within C
+    * Creating a list within C and returning it to R
+    * Creating a data.frame within C and returning it to R
 
 # simplecall 0.1.0
 

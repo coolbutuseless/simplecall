@@ -22,3 +22,13 @@ create_list_in_c <- function() {
 create_data_frame_in_c <- function() {
   .Call(create_data_frame_in_c_)
 }
+
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#' Create an array within C code and return to R
+#'
+#' @export
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+create_array_in_c <- function() {
+  .Call(create_array_in_c_)
+}

@@ -5,7 +5,8 @@
 
 <!-- badges: start -->
 
-![](https://img.shields.io/badge/cool-useless-green.svg)
+![](https://img.shields.io/badge/cool-useless-green.svg) [![R build
+status](https://github.com/coolbutuseless/simplecall/workflows/R-CMD-check/badge.svg)](https://github.com/coolbutuseless/simplecall/actions)
 <!-- badges: end -->
 
 `simplecall` is a small demo package showing how C code could be
@@ -89,7 +90,7 @@ add_Call <- function(x, y) {
       return result;
     }
 
-## Creating a R List within C
+## Creating an R List within C
 
 Example code is included to create a list completely within C and return
 it to R
@@ -157,7 +158,7 @@ SEXP create_list_in_c_() {
 
 </details>
 
-## Creating a R data.frame within C
+## Creating an R data.frame within C
 
 Example code is included to create a data.frame completely within C and
 return it to R
@@ -238,6 +239,57 @@ SEXP create_data_frame_in_c_() {
 
   UNPROTECT(6);
   return df_;
+}
+```
+
+</details>
+
+## Creating an R array within C
+
+Example code is included to create an array completely within C and
+return it to R
+
+<details>
+
+<summary> Click to show/hide code </summary>
+
+``` c
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// Creating an array within C and returning it to R
+//
+//  1. Create individual vector
+//  2. Create an integer vector to hold the dimensions.
+//  3. Set the dimension attribute on the vector
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+SEXP create_array_in_c_() {
+
+  //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  // Each member of the list gets allocated separately
+  //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  int rows = 10;
+  int cols = 1;
+  int n = rows * cols;
+
+  SEXP arr_ = PROTECT(allocVector(INTSXP, n));
+  SEXP dim_ = PROTECT(allocVector(INTSXP, 2));
+
+  INTEGER(dim_)[0] = rows;
+  INTEGER(dim_)[1] = cols;
+
+  //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  // Assign some dummy values into the members
+  //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  for (int i = 0; i < n; i++) {
+    INTEGER(arr_)[i] = i + 1;
+  }
+
+  //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  // Set the dimensions
+  //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  setAttrib(arr_, R_DimSymbol, dim_);
+
+  UNPROTECT(2);
+  return arr_;
 }
 ```
 
