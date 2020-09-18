@@ -10,14 +10,14 @@ SEXP add_(SEXP x_, SEXP y_) {
   int xtype = TYPEOF(x_);
   int ytype = TYPEOF(y_);
 
-  if (xtype != REALSXP | ytype != REALSXP) {
+  if ((xtype != REALSXP) | (ytype != REALSXP)) {
     Rf_error("add_() expects only floating point numbers i.e. doubles or reals");
   }
 
   int xlen = length(x_);
   int ylen = length(y_);
 
-  if (xlen != 1 | ylen != 1) {
+  if ((xlen != 1) | (ylen != 1)) {
     error("add_() expects arguments to be length = 1");
   }
 
