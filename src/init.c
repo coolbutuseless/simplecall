@@ -64,8 +64,7 @@
 //  2. Define the name and address and number of arguments
 //  3. Initialize the DLL
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-extern SEXP add_();
-extern SEXP mul_();
+extern SEXP add_(SEXP,SEXP);
 extern SEXP create_data_frame_in_c_();
 extern SEXP create_list_in_c_();
 extern SEXP create_array_in_c_();
